@@ -10,7 +10,7 @@ export default class App extends React.Component {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: 40,
+          fontSize: 28,
           color: '#010101',
         }}
       >
@@ -19,20 +19,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
