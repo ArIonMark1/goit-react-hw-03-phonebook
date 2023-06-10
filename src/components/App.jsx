@@ -20,6 +20,7 @@ export default class App extends PureComponent {
     //
     const parsedDataStorage = JSON.parse(dataStorage);
     if (parsedDataStorage && parsedDataStorage.length > 0) {
+      // додаткова перевірка, як що користувач видалив записи лишається пустий масив але [] === true !!
       this.setState({ [this.state.localKey]: [...parsedDataStorage] });
     }
   }
