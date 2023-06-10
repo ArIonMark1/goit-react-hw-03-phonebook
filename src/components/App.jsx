@@ -26,7 +26,7 @@ export default class App extends PureComponent {
   }
 
   componentDidUpdate(_, prevState) {
-    if (prevState.contacts.length !== this.state.contacts.length) {
+    if (this.state.contacts.length !== prevState.contacts.length) {
       localStorage.setItem(
         [this.state.localKey],
         JSON.stringify(this.state.contacts)
