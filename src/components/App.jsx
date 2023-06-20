@@ -3,6 +3,8 @@ import debounce from 'lodash.debounce';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import SearchContacts from './SearchContacts/SearchContacts';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DATA_STATE = {
   localKey: 'contacts',
@@ -43,10 +45,10 @@ export default class App extends PureComponent {
         contact => contact.name === data.name && contact.number === data.number
       )
     ) {
-      alert(`${data.name} is already in contacts.`);
-      return;
+      return toast.error(`${data.name} is already in contacts.`);
     }
     this.setState({ contacts: [...contacts, data] });
+    toast.success(`${data.name} added in contacts.`);
   };
   //******************************************** */
   filterInputData = debounce(data => {
@@ -72,6 +74,18 @@ export default class App extends PureComponent {
     return (
       <div className="container">
         <h2>Phone Book</h2>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <ContactForm onSubmit={this.receiveFormData} />
         {this.state.contacts.length !== 0 && (
           <>
